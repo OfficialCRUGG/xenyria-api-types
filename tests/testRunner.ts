@@ -1,11 +1,11 @@
 import * as path from "path";
-import * as tjs from "ts-json-schema-generator";
 import Ajv from "ajv";
 import axios from "axios";
 import { config } from "dotenv";
 import { Logger } from "@blazingworks/logger";
 import PrettyConsoleTransport from "@blazingworks/logger-transport-prettyconsole";
 import { LogLevel } from "@blazingworks/logger/enums";
+import fs from "fs";
 config();
 
 const tests = [
@@ -64,14 +64,9 @@ const logger = new Logger({
   ],
 });
 
-const schema = tjs
-  .createGenerator({
-    path: path.resolve("./responses/*.d.ts"),
-    tsconfig: path.resolve("tsconfig.json"),
-    type: "*",
-  })
-  .createSchema("*");
-
+const schema = JSON.parse(
+  fs.readFileSync(path.resolve("./schema.json"), "utf-8")
+);
 const ajv = new Ajv();
 ajv.compile(schema);
 

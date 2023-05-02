@@ -5,6 +5,8 @@
   "types": "index.d.ts",
   "scripts": {
     "test": "tsx tests/testRunner.ts",
+    "build": "npm run build:schema & npm run build:typedoc",
+    "build:schema": "tsx createSchema.ts",
     "build:typedoc": "typedoc"
   },
   "keywords": [
