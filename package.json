@@ -7,7 +7,11 @@
     "test": "tsx tests/testRunner.ts",
     "build": "npm run build:schema & npm run build:typedoc",
     "build:schema": "tsx createSchema.ts",
-    "build:typedoc": "typedoc"
+    "build:typedoc": "typedoc",
+    "release": "standard-version",
+    "release:patch": "standard-version --release-as patch",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major"
   },
   "keywords": [
     "minecraft",
@@ -24,6 +28,7 @@
     "ajv": "^8.12.0",
     "axios": "^1.4.0",
     "dotenv": "^16.0.3",
+    "standard-version": "^9.5.0",
     "ts-json-schema-generator": "^1.2.0",
     "tsx": "^3.12.7",
     "typedoc": "^0.24.6"
