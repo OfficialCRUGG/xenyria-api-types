@@ -4,7 +4,8 @@
   "description": "🔖 Type Definitions for the Xenyria API",
   "types": "index.d.ts",
   "scripts": {
-    "test": "tsx tests/testRunner.ts"
+    "test": "tsx tests/testRunner.ts",
+    "build:typedoc": "typedoc"
   },
   "keywords": [
     "minecraft",
@@ -22,7 +23,8 @@
     "axios": "^1.4.0",
     "dotenv": "^16.0.3",
     "ts-json-schema-generator": "^1.2.0",
-    "tsx": "^3.12.7"
+    "tsx": "^3.12.7",
+    "typedoc": "^0.24.6"
   },
   "tsd": {
     "directory": "tests"
