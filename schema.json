@@ -1,0 +1,1806 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "RESTGetAPINetworkPlayerListResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RESTPlayerListServer"
+          }
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPlayerListServer": {
+      "type": "object",
+      "properties": {
+        "server_id": {
+          "type": "string"
+        },
+        "players": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RESTPlayerListPlayer"
+          }
+        }
+      },
+      "required": [
+        "server_id",
+        "players"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPlayerListPlayer": {
+      "type": "object",
+      "properties": {
+        "xen_id": {
+          "type": "number"
+        },
+        "username": {
+          "type": "string"
+        },
+        "uuid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "xen_id",
+        "username",
+        "uuid"
+      ],
+      "additionalProperties": false
+    },
+    "RESTGetAPINetworkMaintenanceResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "scheduled": {
+              "type": "boolean"
+            },
+            "scheduled_timestamp": {
+              "type": "number"
+            },
+            "maintenance": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "scheduled",
+            "scheduled_timestamp",
+            "maintenance"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "RESTGetAPIPaintSquadVersionDataResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "game_version": {
+              "type": "string"
+            },
+            "modes": {
+              "type": "object",
+              "properties": {
+                "weapon_test": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataMode"
+                },
+                "splatzones": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataMode"
+                },
+                "turfwar": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataMode"
+                },
+                "invasion": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataMode"
+                },
+                "tower_control": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataMode"
+                },
+                "tutorial": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataMode"
+                },
+                "eightball": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataMode"
+                },
+                "clam_attack": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataMode"
+                },
+                "rainmaker": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataMode"
+                },
+                "conquest": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataMode"
+                }
+              },
+              "required": [
+                "weapon_test",
+                "splatzones",
+                "turfwar",
+                "invasion",
+                "tower_control",
+                "tutorial",
+                "eightball",
+                "clam_attack",
+                "rainmaker",
+                "conquest"
+              ],
+              "additionalProperties": false
+            },
+            "sets": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RESTPaintSquadVersionDataSet"
+              }
+            },
+            "invasion_mm_ladder": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RESTPaintSquadVersionDataInvasionMMLadder"
+              }
+            },
+            "created": {
+              "type": "number"
+            },
+            "equipment_quality": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/RESTPaintSquadVersionDataEquipmentQuality"
+              }
+            },
+            "arena": {
+              "$ref": "#/definitions/RESTPaintSquadVersionDataArenas"
+            },
+            "static_items": {
+              "$ref": "#/definitions/RESTPaintSquadVersionDataStaticItem"
+            },
+            "level_list": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RESTPaintSquadVersionDataLevelList"
+              }
+            },
+            "build_date": {
+              "type": "string"
+            },
+            "public_mm_ladder": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RESTPaintSquadVersionDataPublicMMLadder"
+              }
+            },
+            "build_number": {
+              "type": "string"
+            },
+            "perks": {
+              "type": "object",
+              "properties": {
+                "stealth_jump": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataPerk"
+                },
+                "ink_resistance_up": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataPerk"
+                },
+                "squid_ninja": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataPerk"
+                },
+                "swim_speed_up": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataPerk"
+                },
+                "run_speed_up": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataPerk"
+                },
+                "special_charge_up": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataPerk"
+                },
+                "ink_recovery_up": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataPerk"
+                },
+                "berserker": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataPerk"
+                },
+                "special_saver": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataPerk"
+                },
+                "tenacity": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataPerk"
+                },
+                "tracker": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataPerk"
+                },
+                "ink_saver_main": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataPerk"
+                },
+                "quick_super_jump": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataPerk"
+                },
+                "quick_respawn": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataPerk"
+                },
+                "ink_saver_sub": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataPerk"
+                },
+                "jump_armor": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataPerk"
+                },
+                "ink_shield": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataPerk"
+                },
+                "bomb_defense_up": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataPerk"
+                }
+              },
+              "required": [
+                "stealth_jump",
+                "ink_resistance_up",
+                "squid_ninja",
+                "swim_speed_up",
+                "run_speed_up",
+                "special_charge_up",
+                "ink_recovery_up",
+                "berserker",
+                "special_saver",
+                "tenacity",
+                "tracker",
+                "ink_saver_main",
+                "quick_super_jump",
+                "quick_respawn",
+                "ink_saver_sub",
+                "jump_armor",
+                "ink_shield",
+                "bomb_defense_up"
+              ],
+              "additionalProperties": false
+            },
+            "weapons": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RESTPaintSquadVersionDataWeapon"
+              }
+            }
+          },
+          "required": [
+            "game_version",
+            "modes",
+            "sets",
+            "invasion_mm_ladder",
+            "created",
+            "equipment_quality",
+            "arena",
+            "static_items",
+            "level_list",
+            "build_date",
+            "public_mm_ladder",
+            "build_number",
+            "perks",
+            "weapons"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "success",
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadVersionDataMode": {
+      "type": "object",
+      "properties": {
+        "database_id": {
+          "type": "number"
+        },
+        "name": {
+          "$ref": "#/definitions/RESTLocalizedString"
+        },
+        "description": {
+          "$ref": "#/definitions/RESTLocalizedString"
+        },
+        "id": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "database_id",
+        "name",
+        "description",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "RESTLocalizedString": {
+      "type": "object",
+      "properties": {
+        "english": {
+          "type": "string"
+        },
+        "german": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "english",
+        "german"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadVersionDataSet": {
+      "type": "object",
+      "properties": {
+        "internal_name": {
+          "type": "string"
+        },
+        "level": {
+          "type": "number"
+        },
+        "ai_range_begin": {
+          "type": "number"
+        },
+        "price": {
+          "type": "number"
+        },
+        "ai_range_end": {
+          "type": "number"
+        },
+        "primary_weapon": {
+          "type": "number"
+        },
+        "secondary_weapon": {
+          "type": "number"
+        },
+        "special_weapon": {
+          "type": "number"
+        },
+        "name": {
+          "$ref": "#/definitions/RESTLocalizedString"
+        },
+        "id": {
+          "type": "number"
+        },
+        "is_in_shop": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "internal_name",
+        "level",
+        "ai_range_begin",
+        "price",
+        "ai_range_end",
+        "primary_weapon",
+        "secondary_weapon",
+        "special_weapon",
+        "name",
+        "id",
+        "is_in_shop"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadVersionDataInvasionMMLadder": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "hazardBegin": {
+              "type": "string"
+            },
+            "color": {
+              "type": "string"
+            },
+            "hazardEnd": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "hazardBegin",
+            "color",
+            "hazardEnd"
+          ],
+          "additionalProperties": false
+        },
+        "start": {
+          "type": "number"
+        },
+        "end": {
+          "type": "number"
+        },
+        "title": {
+          "$ref": "#/definitions/RESTLocalizedString"
+        }
+      },
+      "required": [
+        "metadata",
+        "start",
+        "end",
+        "title"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadVersionDataEquipmentQuality": {
+      "type": "object",
+      "properties": {
+        "required_exp_per_level": {
+          "type": "number"
+        },
+        "equipment_levels": {
+          "type": "number"
+        },
+        "required_level_baseline": {
+          "type": "number"
+        },
+        "max_random_price": {
+          "type": "number"
+        },
+        "ordinal": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "required_exp_per_level",
+        "equipment_levels",
+        "required_level_baseline",
+        "max_random_price",
+        "ordinal"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadVersionDataArenas": {
+      "type": "object",
+      "properties": {
+        "battle": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RESTPaintSquadVersionDataArena"
+          }
+        }
+      },
+      "required": [
+        "battle"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadVersionDataArena": {
+      "type": "object",
+      "properties": {
+        "max_teams": {
+          "type": "number"
+        },
+        "max_players_total": {
+          "type": "number"
+        },
+        "author": {
+          "type": "string"
+        },
+        "max_players_per_team": {
+          "type": "number"
+        },
+        "name": {
+          "$ref": "#/definitions/RESTLocalizedString"
+        },
+        "id": {
+          "type": "string"
+        },
+        "layouts": {
+          "type": "object",
+          "properties": {
+            "weapon_test": {
+              "type": "string"
+            },
+            "splatzones": {
+              "type": "string"
+            },
+            "turfwar": {
+              "type": "string"
+            },
+            "invasion": {
+              "type": "string"
+            },
+            "tower_control": {
+              "type": "string"
+            },
+            "tutorial": {
+              "type": "string"
+            },
+            "eightball": {
+              "type": "string"
+            },
+            "clam_attack": {
+              "type": "string"
+            },
+            "rainmaker": {
+              "type": "string"
+            },
+            "conquest": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "max_teams",
+        "max_players_total",
+        "author",
+        "max_players_per_team",
+        "name",
+        "id",
+        "layouts"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadVersionDataStaticItem": {
+      "type": "object",
+      "properties": {
+        "color": {
+          "type": "string"
+        },
+        "quality": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "rare": {
+          "type": "boolean"
+        },
+        "xp": {
+          "type": "number"
+        },
+        "brand": {
+          "type": "string"
+        },
+        "overriden_color": {
+          "type": "string"
+        },
+        "item_id": {
+          "type": "number"
+        },
+        "model_prefix": {
+          "type": "string"
+        },
+        "name": {
+          "$ref": "#/definitions/RESTLocalizedString"
+        },
+        "perks": {
+          "type": "array",
+          "items": {
+            "type": "null"
+          }
+        },
+        "color_sensitive": {
+          "type": "boolean"
+        },
+        "primary_perk": {
+          "$ref": "#/definitions/PaintSquadPerk"
+        },
+        "category": {
+          "$ref": "#/definitions/PaintSquadItemCategory"
+        }
+      },
+      "required": [
+        "brand",
+        "category",
+        "color",
+        "color_sensitive",
+        "item_id",
+        "model_prefix",
+        "name",
+        "overriden_color",
+        "perks",
+        "price",
+        "primary_perk",
+        "quality",
+        "rare",
+        "xp"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadItemBase": {
+      "type": "object",
+      "properties": {
+        "color": {
+          "type": "string"
+        },
+        "quality": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "rare": {
+          "type": "boolean"
+        },
+        "xp": {
+          "type": "number"
+        },
+        "brand": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "color",
+        "quality",
+        "price",
+        "rare",
+        "xp",
+        "brand"
+      ],
+      "additionalProperties": false
+    },
+    "PaintSquadPerk": {
+      "type": "string",
+      "enum": [
+        "STEALTH_JUMP",
+        "INK_RESISTANCE_UP",
+        "SQUID_NINJA",
+        "SWIM_SPEED_UP",
+        "RUN_SPEED_UP",
+        "SPECIAL_CHARGE_UP",
+        "INK_RECOVERY_UP",
+        "BERSERKER",
+        "SPECIAL_SAVER",
+        "TENACITY",
+        "TRACKER",
+        "INK_SAVER_MAIN",
+        "QUICK_SUPER_JUMP",
+        "QUICK_RESPAWN",
+        "INK_SAVER_SUB",
+        "JUMP_ARMOR",
+        "INK_SHIELD",
+        "BOMB_DEFENSE_UP"
+      ]
+    },
+    "PaintSquadItemCategory": {
+      "type": "string",
+      "enum": [
+        "HELMETS",
+        "CHESTPLATES",
+        "BOOTS"
+      ]
+    },
+    "RESTPaintSquadVersionDataLevelList": {
+      "type": "object",
+      "properties": {
+        "end": {
+          "type": "number"
+        },
+        "id": {
+          "type": "number"
+        },
+        "title": {
+          "$ref": "#/definitions/RESTLocalizedString"
+        },
+        "begin": {
+          "type": "number"
+        },
+        "rewards": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 0
+        }
+      },
+      "required": [
+        "end",
+        "id",
+        "title",
+        "begin",
+        "rewards"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadVersionDataPublicMMLadder": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "start": {
+          "type": "number"
+        },
+        "end": {
+          "type": "number"
+        },
+        "title": {
+          "$ref": "#/definitions/RESTLocalizedString"
+        }
+      },
+      "required": [
+        "metadata",
+        "start",
+        "end",
+        "title"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadVersionDataPerk": {
+      "type": "object",
+      "properties": {
+        "performance_description": {
+          "$ref": "#/definitions/RESTLocalizedString"
+        },
+        "name": {
+          "$ref": "#/definitions/RESTLocalizedString"
+        },
+        "functionality_description": {
+          "$ref": "#/definitions/RESTLocalizedString"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "main_effect": {
+          "type": "number"
+        },
+        "is_main_only": {
+          "type": "boolean"
+        },
+        "sub_effect": {
+          "type": "number"
+        },
+        "ordinal": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "performance_description",
+        "name",
+        "functionality_description",
+        "icon",
+        "main_effect",
+        "is_main_only",
+        "sub_effect",
+        "ordinal"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadVersionDataWeapon": {
+      "type": "object",
+      "properties": {
+        "features": {
+          "type": "object",
+          "properties": {
+            "damage": {
+              "type": "number"
+            },
+            "firing_rate": {
+              "type": "number"
+            },
+            "radius": {
+              "type": "number"
+            },
+            "range_raw": {
+              "type": "number"
+            },
+            "mobility": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "in_air_accuracy_modifier": {
+              "type": "number"
+            },
+            "projectile_distance": {
+              "type": "number"
+            },
+            "paint_radius_modifier": {
+              "type": "number"
+            },
+            "direct_hit_damage": {
+              "type": "number"
+            },
+            "drip_in_air_probability": {
+              "type": "number"
+            },
+            "max_horizontal_spread": {
+              "type": "number"
+            },
+            "ink_consumption": {
+              "type": "number"
+            },
+            "movement_modifier": {
+              "type": "number"
+            },
+            "firing_speed": {
+              "type": "number"
+            },
+            "projectiles_per_use": {
+              "type": "number"
+            },
+            "max_vertical_spread": {
+              "type": "number"
+            },
+            "splash_damage": {
+              "type": "number"
+            },
+            "explosion_radius": {
+              "type": "number"
+            },
+            "can_store_not_fully_charged_shots": {
+              "type": "boolean"
+            },
+            "has_scope": {
+              "type": "boolean"
+            },
+            "charge_movement_modifier": {
+              "type": "number"
+            },
+            "can_store_shots": {
+              "type": "boolean"
+            },
+            "ticks_per_charge": {
+              "type": "number"
+            },
+            "fully_charged_damage": {
+              "type": "number"
+            },
+            "range": {
+              "type": "number"
+            },
+            "min_non_fully_charged_damage": {
+              "type": "number"
+            },
+            "max_non_fully_charged_damage": {
+              "type": "number"
+            },
+            "max_store_time": {
+              "type": "number"
+            },
+            "dodge_ink_consumption": {
+              "type": "number"
+            },
+            "fire_rate": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "$ref": "#/definitions/RESTLocalizedString"
+        },
+        "model": {
+          "type": "string"
+        },
+        "id": {
+          "type": "number"
+        },
+        "type": {
+          "$ref": "#/definitions/PaintSquadWeaponType"
+        }
+      },
+      "required": [
+        "features",
+        "data",
+        "name",
+        "model",
+        "id",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "PaintSquadWeaponType": {
+      "type": "string",
+      "const": "primary"
+    },
+    "RESTGetAPIPaintSquadLeaderboardResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RESTPaintSquadLeaderboardEntry"
+          }
+        }
+      },
+      "required": [
+        "success",
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadLeaderboardEntry": {
+      "type": "object",
+      "properties": {
+        "xen_id": {
+          "type": "number"
+        },
+        "uuid": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "points": {
+          "type": "number"
+        },
+        "wins": {
+          "type": "number"
+        },
+        "losses": {
+          "type": "number"
+        },
+        "kills": {
+          "type": "number"
+        },
+        "assists": {
+          "type": "number"
+        },
+        "deaths": {
+          "type": "number"
+        },
+        "profile": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RESTSkinProfileData"
+          }
+        },
+        "place": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "assists",
+        "deaths",
+        "kills",
+        "losses",
+        "place",
+        "points",
+        "username",
+        "uuid",
+        "wins",
+        "xen_id"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadPlayerData": {
+      "type": "object",
+      "properties": {
+        "xen_id": {
+          "type": "number"
+        },
+        "uuid": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "points": {
+          "type": "number"
+        },
+        "wins": {
+          "type": "number"
+        },
+        "losses": {
+          "type": "number"
+        },
+        "kills": {
+          "type": "number"
+        },
+        "assists": {
+          "type": "number"
+        },
+        "deaths": {
+          "type": "number"
+        },
+        "profile": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RESTSkinProfileData"
+          }
+        }
+      },
+      "required": [
+        "xen_id",
+        "uuid",
+        "username",
+        "points",
+        "wins",
+        "losses",
+        "kills",
+        "assists",
+        "deaths"
+      ],
+      "additionalProperties": false
+    },
+    "RESTSkinProfileData": {
+      "type": "object",
+      "properties": {
+        "signature": {
+          "type": "string"
+        },
+        "texture": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "signature",
+        "texture"
+      ],
+      "additionalProperties": false
+    },
+    "RESTGetAPIPaintSquadPlayerStatsResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "$ref": "#/definitions/RESTPaintSquadPlayerData"
+        }
+      },
+      "required": [
+        "success",
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "RESTGetAPIPaintSquadAssetRenderResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "$ref": "#/definitions/RESTBase64Data"
+        }
+      },
+      "required": [
+        "success",
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "RESTBase64Data": {
+      "type": "object",
+      "properties": {
+        "base64": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "base64"
+      ],
+      "additionalProperties": false
+    },
+    "RESTGetAPIPaintSquadArenaImageResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "$ref": "#/definitions/RESTBase64Data"
+        }
+      },
+      "required": [
+        "success",
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "RESTGetAPIPaintSquadLastMatchesResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RESTPaintSquadMatch"
+          }
+        }
+      },
+      "required": [
+        "success",
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadMatch": {
+      "type": "object",
+      "properties": {
+        "match_id": {
+          "type": "string"
+        },
+        "is_win": {
+          "type": "boolean"
+        },
+        "arena": {
+          "type": "string"
+        },
+        "gamemode": {
+          "type": "number"
+        },
+        "timestamp": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "match_id",
+        "is_win",
+        "arena",
+        "gamemode",
+        "timestamp"
+      ],
+      "additionalProperties": false
+    },
+    "RESTGetAPIPaintSquadMatchDetailsResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "game_version": {
+              "type": "string"
+            },
+            "resource_hash": {
+              "type": "string"
+            },
+            "winning_team_name": {
+              "$ref": "#/definitions/PaintSquadTeam"
+            },
+            "winning_team_score": {
+              "type": "number"
+            },
+            "losing_team_name": {
+              "$ref": "#/definitions/PaintSquadTeam"
+            },
+            "losing_team_score": {
+              "type": "number"
+            },
+            "arena": {
+              "type": "string"
+            },
+            "gamemode": {
+              "type": "number"
+            },
+            "minecraft_version": {
+              "type": "string"
+            },
+            "metadata": {
+              "type": "object",
+              "properties": {
+                "game_info": {
+                  "type": "object",
+                  "properties": {
+                    "duration": {
+                      "type": "number"
+                    },
+                    "alpha_color": {
+                      "type": "string"
+                    },
+                    "bravo_color": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "duration",
+                    "alpha_color",
+                    "bravo_color"
+                  ],
+                  "additionalProperties": false
+                },
+                "player_info": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/RESTPaintSquadMatchPlayerInfo"
+                  }
+                }
+              },
+              "required": [
+                "game_info",
+                "player_info"
+              ],
+              "additionalProperties": false
+            },
+            "timestamp": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "game_version",
+            "resource_hash",
+            "winning_team_name",
+            "winning_team_score",
+            "losing_team_name",
+            "losing_team_score",
+            "arena",
+            "gamemode",
+            "minecraft_version",
+            "metadata",
+            "timestamp"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "success",
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "PaintSquadTeam": {
+      "type": "string",
+      "enum": [
+        "ALPHA",
+        "BRAVO"
+      ]
+    },
+    "RESTPaintSquadMatchPlayerInfo": {
+      "type": "object",
+      "properties": {
+        "signature": {
+          "type": "string"
+        },
+        "texture": {
+          "type": "string"
+        },
+        "player_id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/PaintSquadPlayerType"
+        },
+        "kills": {
+          "type": "number"
+        },
+        "deaths": {
+          "type": "number"
+        },
+        "assits": {
+          "type": "number"
+        },
+        "set": {
+          "type": "number"
+        },
+        "special_use": {
+          "type": "number"
+        },
+        "stats_type": {
+          "type": "string"
+        },
+        "team": {
+          "type": "string"
+        },
+        "team_type": {
+          "$ref": "#/definitions/PaintSquadTeam"
+        },
+        "points": {
+          "type": "number"
+        },
+        "mmr": {
+          "type": "number"
+        },
+        "helmet": {
+          "$ref": "#/definitions/RESTPaintSquadItem"
+        },
+        "chestplate": {
+          "$ref": "#/definitions/RESTPaintSquadItem"
+        },
+        "boots": {
+          "$ref": "#/definitions/RESTPaintSquadItem"
+        }
+      },
+      "required": [
+        "assits",
+        "boots",
+        "chestplate",
+        "deaths",
+        "helmet",
+        "kills",
+        "mmr",
+        "name",
+        "player_id",
+        "points",
+        "set",
+        "signature",
+        "special_use",
+        "stats_type",
+        "team",
+        "team_type",
+        "texture",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "PaintSquadPlayerType": {
+      "type": "string",
+      "enum": [
+        "human",
+        "ai"
+      ]
+    },
+    "RESTPaintSquadItem": {
+      "type": "object",
+      "properties": {
+        "color": {
+          "type": "string"
+        },
+        "quality": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "rare": {
+          "type": "boolean"
+        },
+        "xp": {
+          "type": "number"
+        },
+        "brand": {
+          "type": "string"
+        },
+        "item_id": {
+          "type": "number"
+        },
+        "model_id": {
+          "type": "string"
+        },
+        "category": {
+          "$ref": "#/definitions/PaintSquadItemCategoryLowercase"
+        },
+        "perks": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/PaintSquadPerkLowercase"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "primary_perk": {
+          "$ref": "#/definitions/PaintSquadPerkLowercase"
+        }
+      },
+      "required": [
+        "brand",
+        "category",
+        "color",
+        "item_id",
+        "model_id",
+        "perks",
+        "price",
+        "primary_perk",
+        "quality",
+        "rare",
+        "xp"
+      ],
+      "additionalProperties": false
+    },
+    "PaintSquadItemCategoryLowercase": {
+      "type": "string",
+      "enum": [
+        "helmets",
+        "chestplates",
+        "boots"
+      ]
+    },
+    "PaintSquadPerkLowercase": {
+      "type": "string",
+      "enum": [
+        "stealth_jump",
+        "ink_resistance_up",
+        "squid_ninja",
+        "swim_speed_up",
+        "run_speed_up",
+        "special_charge_up",
+        "ink_recovery_up",
+        "berserker",
+        "special_saver",
+        "tenacity",
+        "tracker",
+        "ink_saver_main",
+        "quick_super_jump",
+        "quick_respawn",
+        "ink_saver_sub",
+        "jump_armor",
+        "ink_shield",
+        "bomb_defense_up"
+      ]
+    },
+    "RESTGetAPIPaintSquadInventoryResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "equipped_helmet_local_id": {
+              "type": "number"
+            },
+            "equipped_chestplate_local_id": {
+              "type": "number"
+            },
+            "equipped_boots_local_id": {
+              "type": "number"
+            },
+            "equipped_weapon_set_local_id": {
+              "type": "number"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/RESTPaintSquadInventoryItem"
+                  },
+                  {
+                    "$ref": "#/definitions/RESTPaintSquadInventoryWeaponSet"
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "equipped_helmet_local_id",
+            "equipped_chestplate_local_id",
+            "equipped_boots_local_id",
+            "equipped_weapon_set_local_id",
+            "items"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "success",
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadInventoryItem": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/RESTPaintSquadItem"
+        },
+        "local_id": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "helmet",
+            "chestplate",
+            "boots"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "local_id",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadInventoryWeaponSet": {
+      "type": "object",
+      "properties": {
+        "local_id": {
+          "type": "number"
+        },
+        "weapon_set_id": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string",
+          "const": "weapon_set"
+        }
+      },
+      "required": [
+        "local_id",
+        "weapon_set_id",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "RESTGetAPIPaintSquadWeaponStatsResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RESTPaintSquadWeaponSetStats"
+          }
+        }
+      },
+      "required": [
+        "success",
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadWeaponSetStats": {
+      "type": "object",
+      "properties": {
+        "weapon_set_id": {
+          "type": "number"
+        },
+        "wins": {
+          "type": "number"
+        },
+        "losses": {
+          "type": "number"
+        },
+        "kills": {
+          "type": "number"
+        },
+        "deaths": {
+          "type": "number"
+        },
+        "assists": {
+          "type": "number"
+        },
+        "score": {
+          "type": "number"
+        },
+        "experience": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "weapon_set_id",
+        "wins",
+        "losses",
+        "kills",
+        "deaths",
+        "assists",
+        "score",
+        "experience"
+      ],
+      "additionalProperties": false
+    },
+    "RESTGetAPIPaintSquadPlayerDataResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "tutorial_finished": {
+              "type": "boolean"
+            },
+            "coins": {
+              "type": "number"
+            },
+            "xp": {
+              "type": "number"
+            },
+            "public_mmr": {
+              "type": "number"
+            },
+            "invasion_mmr": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "tutorial_finished",
+            "coins",
+            "xp",
+            "public_mmr",
+            "invasion_mmr"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "success",
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "RESTGetAPIPlayerFetchResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "xen_id": {
+              "type": "number"
+            },
+            "username": {
+              "type": "string"
+            },
+            "uuid": {
+              "type": "string"
+            },
+            "playtime_seconds": {
+              "type": "number"
+            },
+            "language": {
+              "$ref": "#/definitions/Language"
+            },
+            "token": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "xen_id",
+            "username",
+            "uuid",
+            "playtime_seconds",
+            "language",
+            "token"
+          ],
+          "additionalProperties": false
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "Language": {
+      "type": "string",
+      "enum": [
+        "english",
+        "german"
+      ]
+    },
+    "RESTGetAPIPlayerVotesResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "total_vote_count": {
+              "type": "number"
+            },
+            "current_vote_streak": {
+              "type": "number"
+            },
+            "queued_vote_rewards": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "total_vote_count",
+            "current_vote_streak",
+            "queued_vote_rewards"
+          ],
+          "additionalProperties": false
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "RESTGetAPIPlayerGroupResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "group_id": {
+              "$ref": "#/definitions/Group"
+            },
+            "membership_end": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "group_id",
+            "membership_end"
+          ],
+          "additionalProperties": false
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "Group": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "dev",
+        "bauleitung",
+        "architektmeister",
+        "architekt",
+        "architektenlehrlin",
+        "modleitung",
+        "mod",
+        "moderatorlehrling",
+        "designer",
+        "Social-Media-Manager",
+        "teammitglied",
+        "Experte",
+        "YouTuber",
+        "Streamer",
+        "Helper",
+        "premium",
+        "tester",
+        "gast",
+        "placeholder"
+      ]
+    },
+    "RESTGetAPITestingHelloResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "response": {
+          "type": "string",
+          "const": "Hi!"
+        }
+      },
+      "required": [
+        "success",
+        "response"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

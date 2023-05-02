@@ -1,0 +1,30 @@
+{
+  "name": "xenyria-api-types",
+  "version": "0.1.0",
+  "description": "🔖 Type Definitions for the Xenyria API",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "tsx tests/testRunner.ts"
+  },
+  "keywords": [
+    "minecraft",
+    "xenyria",
+    "xenyria-api",
+    "types"
+  ],
+  "author": "OfficialCRUGG <me@crg.sh>",
+  "license": "MIT",
+  "devDependencies": {
+    "@blazingworks/logger": "^1.0.2",
+    "@blazingworks/logger-transport-prettyconsole": "^1.0.0",
+    "@types/node": "^18.16.3",
+    "ajv": "^8.12.0",
+    "axios": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "ts-json-schema-generator": "^1.2.0",
+    "tsx": "^3.12.7"
+  },
+  "tsd": {
+    "directory": "tests"
+  }
+}
