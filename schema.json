@@ -137,6 +137,9 @@
                 },
                 "conquest": {
                   "$ref": "#/definitions/RESTPaintSquadVersionDataMode"
+                },
+                "deathmatch": {
+                  "$ref": "#/definitions/RESTPaintSquadVersionDataMode"
                 }
               },
               "required": [
@@ -149,7 +152,8 @@
                 "eightball",
                 "clam_attack",
                 "rainmaker",
-                "conquest"
+                "conquest",
+                "deathmatch"
               ],
               "additionalProperties": false
             },
@@ -178,7 +182,10 @@
               "$ref": "#/definitions/RESTPaintSquadVersionDataArenas"
             },
             "static_items": {
-              "$ref": "#/definitions/RESTPaintSquadVersionDataStaticItem"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RESTPaintSquadVersionDataStaticItem"
+              }
             },
             "level_list": {
               "type": "array",
@@ -507,6 +514,12 @@
         "id": {
           "type": "string"
         },
+        "waves": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RESTPaintSquadVersionDataArenaWave"
+          }
+        },
         "layouts": {
           "type": "object",
           "properties": {
@@ -539,19 +552,57 @@
             },
             "conquest": {
               "type": "string"
+            },
+            "deathmatch": {
+              "type": "string"
             }
           },
           "additionalProperties": false
         }
       },
       "required": [
-        "max_teams",
-        "max_players_total",
         "author",
-        "max_players_per_team",
         "name",
-        "id",
-        "layouts"
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadVersionDataArenaWave": {
+      "type": "object",
+      "properties": {
+        "room_id": {
+          "type": "number"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "spawns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RESTPaintSquadVersionDataArenaWaveSpawn"
+          }
+        }
+      },
+      "required": [
+        "room_id",
+        "duration",
+        "spawns"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadVersionDataArenaWaveSpawn": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "amount",
+        "type"
       ],
       "additionalProperties": false
     },
@@ -585,13 +636,17 @@
         "model_prefix": {
           "type": "string"
         },
+        "fallback_material": {
+          "type": "string"
+        },
         "name": {
-          "$ref": "#/definitions/RESTLocalizedString"
+          "type": "string"
         },
         "perks": {
           "type": "array",
           "items": {
-            "type": "null"
+            "type": "string",
+            "const": "null"
           }
         },
         "color_sensitive": {
@@ -702,8 +757,9 @@
         },
         "rewards": {
           "type": "array",
-          "minItems": 0,
-          "maxItems": 0
+          "items": {
+            "$ref": "#/definitions/RESTPaintSquadLevelReward"
+          }
         }
       },
       "required": [
@@ -714,6 +770,30 @@
         "rewards"
       ],
       "additionalProperties": false
+    },
+    "RESTPaintSquadLevelReward": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/PaintSquadLevelRewardType"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "PaintSquadLevelRewardType": {
+      "type": "string",
+      "enum": [
+        "coins",
+        "token",
+        "weapon_set"
+      ]
     },
     "RESTPaintSquadVersionDataPublicMMLadder": {
       "type": "object",
@@ -786,19 +866,25 @@
         "features": {
           "type": "object",
           "properties": {
+            "charge": {
+              "type": "number"
+            },
             "damage": {
               "type": "number"
             },
             "firing_rate": {
               "type": "number"
             },
+            "mobility": {
+              "type": "number"
+            },
             "radius": {
               "type": "number"
             },
-            "range_raw": {
+            "range": {
               "type": "number"
             },
-            "mobility": {
+            "range_raw": {
               "type": "number"
             }
           },
@@ -807,79 +893,314 @@
         "data": {
           "type": "object",
           "properties": {
-            "in_air_accuracy_modifier": {
+            "activation_ranges": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RESTPaintSquadVersionDataWeaponDataActionRange"
+              }
+            },
+            "amount_bubbles": {
               "type": "number"
             },
-            "projectile_distance": {
+            "animation_steps": {
               "type": "number"
             },
-            "paint_radius_modifier": {
-              "type": "number"
-            },
-            "direct_hit_damage": {
-              "type": "number"
-            },
-            "drip_in_air_probability": {
-              "type": "number"
-            },
-            "max_horizontal_spread": {
-              "type": "number"
-            },
-            "ink_consumption": {
-              "type": "number"
-            },
-            "movement_modifier": {
-              "type": "number"
-            },
-            "firing_speed": {
-              "type": "number"
-            },
-            "projectiles_per_use": {
-              "type": "number"
-            },
-            "max_vertical_spread": {
-              "type": "number"
-            },
-            "splash_damage": {
-              "type": "number"
-            },
-            "explosion_radius": {
-              "type": "number"
+            "bursts": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RESTPaintSquadVersionDataWeaponDataBurst"
+              }
             },
             "can_store_not_fully_charged_shots": {
               "type": "boolean"
             },
-            "has_scope": {
+            "can_store_shots": {
               "type": "boolean"
             },
             "charge_movement_modifier": {
               "type": "number"
             },
-            "can_store_shots": {
-              "type": "boolean"
-            },
-            "ticks_per_charge": {
+            "charge_time": {
               "type": "number"
             },
-            "fully_charged_damage": {
+            "contact_damage": {
               "type": "number"
             },
-            "range": {
+            "contact_damage_invasion": {
               "type": "number"
             },
-            "min_non_fully_charged_damage": {
+            "damage": {
               "type": "number"
             },
-            "max_non_fully_charged_damage": {
+            "damage_invasion": {
               "type": "number"
             },
-            "max_store_time": {
+            "damage_per_projectile": {
+              "type": "number"
+            },
+            "detonation_damage": {
+              "type": "number"
+            },
+            "detonation_damage_invasion": {
+              "type": "number"
+            },
+            "direct_hit_damage": {
               "type": "number"
             },
             "dodge_ink_consumption": {
               "type": "number"
             },
+            "dodge_velocity": {
+              "type": "number"
+            },
+            "drip_in_air_probability": {
+              "type": "number"
+            },
+            "drip_on_hit_probability": {
+              "type": "number"
+            },
+            "duration": {
+              "type": "number"
+            },
+            "expansion_duration": {
+              "type": "number"
+            },
+            "explosion_radius": {
+              "type": "number"
+            },
+            "explosion_radius_invasion": {
+              "type": "number"
+            },
+            "fall_off_projectile_damage": {
+              "type": "boolean"
+            },
             "fire_rate": {
+              "type": "number"
+            },
+            "firing_movement_speed_modifier": {
+              "type": "number"
+            },
+            "firing_speed": {
+              "type": "number"
+            },
+            "firing_speed_invasion": {
+              "type": "number"
+            },
+            "fling_projectile_count": {
+              "type": "number"
+            },
+            "forced_orientation": {
+              "type": "string",
+              "enum": [
+                "VERTICAL",
+                "HORIZONTAL"
+              ]
+            },
+            "fully_charged_damage": {
+              "type": "number"
+            },
+            "has_horizontal_fling": {
+              "type": "boolean"
+            },
+            "has_scope": {
+              "type": "boolean"
+            },
+            "has_vertical_fling": {
+              "type": "boolean"
+            },
+            "health": {
+              "type": "number"
+            },
+            "horizontal_fling_consumption": {
+              "type": "number"
+            },
+            "horizontal_fling_impulse": {
+              "type": "number"
+            },
+            "horizontal_fling_max_damage": {
+              "type": "number"
+            },
+            "horizontal_fling_min_damage": {
+              "type": "number"
+            },
+            "horizontal_fling_spread": {
+              "type": "number"
+            },
+            "horizontal_fling_width": {
+              "type": "number"
+            },
+            "horizontal_off_angle_fling_max_damage": {
+              "type": "number"
+            },
+            "horizontal_off_angle_fling_min_damage": {
+              "type": "number"
+            },
+            "impact_damage": {
+              "type": "number"
+            },
+            "in_air_accuracy_modifier": {
+              "type": "number"
+            },
+            "ink_consumption": {
+              "type": "number"
+            },
+            "interval": {
+              "type": "number"
+            },
+            "linear_range": {
+              "type": "number"
+            },
+            "max_damage": {
+              "type": "number"
+            },
+            "max_dodges": {
+              "type": "number"
+            },
+            "max_health": {
+              "type": "number"
+            },
+            "max_horizontal_spread": {
+              "type": "number"
+            },
+            "max_movement_modifier": {
+              "type": "number"
+            },
+            "max_non_fully_charged_damage": {
+              "type": "number"
+            },
+            "max_painting_radius": {
+              "type": "number"
+            },
+            "max_projectile_impulse": {
+              "type": "number"
+            },
+            "max_radius": {
+              "type": "number"
+            },
+            "max_radius_invasion": {
+              "type": "number"
+            },
+            "max_store_time": {
+              "type": "number"
+            },
+            "max_targets": {
+              "type": "number"
+            },
+            "max_targets_invasion": {
+              "type": "number"
+            },
+            "max_vertical_spread": {
+              "type": "number"
+            },
+            "min_movement_modifier": {
+              "type": "number"
+            },
+            "min_non_fully_charged_damage": {
+              "type": "number"
+            },
+            "min_painting_radius": {
+              "type": "number"
+            },
+            "movement_modifier": {
+              "type": "number"
+            },
+            "paint_radius_modifier": {
+              "type": "number"
+            },
+            "projectile_count": {
+              "type": "number"
+            },
+            "projectile_damage": {
+              "type": "number"
+            },
+            "projectile_distance": {
+              "type": "number"
+            },
+            "projectile_impulse": {
+              "type": "number"
+            },
+            "projectiles_per_use": {
+              "type": "number"
+            },
+            "radius": {
+              "type": "number"
+            },
+            "range": {
+              "type": "number"
+            },
+            "required_points": {
+              "type": "number"
+            },
+            "roll_ink_consumption": {
+              "type": "number"
+            },
+            "shots": {
+              "type": "number"
+            },
+            "shots_to_max_spread": {
+              "type": "number"
+            },
+            "size": {
+              "type": "number"
+            },
+            "sloshing_speed": {
+              "type": "number"
+            },
+            "speed": {
+              "type": "number"
+            },
+            "splash_damage": {
+              "type": "number"
+            },
+            "ticks_per_charge": {
+              "type": "number"
+            },
+            "ticks_per_horizontal_fling": {
+              "type": "number"
+            },
+            "ticks_per_projectile": {
+              "type": "number"
+            },
+            "ticks_per_shot": {
+              "type": "number"
+            },
+            "ticks_per_shot_invasion": {
+              "type": "number"
+            },
+            "ticks_per_vertical_fling": {
+              "type": "number"
+            },
+            "ticks_until_full_speed": {
+              "type": "number"
+            },
+            "time_for_brush_swipe": {
+              "type": "number"
+            },
+            "vertical_fling_consumption": {
+              "type": "number"
+            },
+            "vertical_fling_impulse": {
+              "type": "number"
+            },
+            "vertical_fling_max_damage": {
+              "type": "number"
+            },
+            "vertical_fling_min_damage": {
+              "type": "number"
+            },
+            "vertical_fling_spread": {
+              "type": "number"
+            },
+            "vertical_fling_width": {
+              "type": "number"
+            },
+            "vertical_off_angle_fling_max_damage": {
+              "type": "number"
+            },
+            "vertical_off_angle_fling_min_damage": {
+              "type": "number"
+            },
+            "width": {
               "type": "number"
             }
           },
@@ -899,7 +1220,6 @@
         }
       },
       "required": [
-        "features",
         "data",
         "name",
         "model",
@@ -908,9 +1228,69 @@
       ],
       "additionalProperties": false
     },
+    "RESTPaintSquadVersionDataWeaponDataActionRange": {
+      "type": "object",
+      "properties": {
+        "activation_ticks": {
+          "type": "number"
+        },
+        "armor_hp": {
+          "type": "number"
+        },
+        "max_range": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "activation_ticks",
+        "armor_hp",
+        "max_range"
+      ],
+      "additionalProperties": false
+    },
+    "RESTPaintSquadVersionDataWeaponDataBurst": {
+      "type": "object",
+      "properties": {
+        "damage": {
+          "type": "number"
+        },
+        "firing_ticks": {
+          "type": "number"
+        },
+        "firing_speed": {
+          "type": "number"
+        },
+        "range": {
+          "type": "number"
+        },
+        "charge_ticks": {
+          "type": "number"
+        },
+        "max_horizontal_spread": {
+          "type": "number"
+        },
+        "max_vertical_spread": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "damage",
+        "firing_ticks",
+        "firing_speed",
+        "range",
+        "charge_ticks",
+        "max_horizontal_spread",
+        "max_vertical_spread"
+      ],
+      "additionalProperties": false
+    },
     "PaintSquadWeaponType": {
       "type": "string",
-      "const": "primary"
+      "enum": [
+        "primary",
+        "secondary",
+        "special"
+      ]
     },
     "RESTGetAPIPaintSquadLeaderboardResponse": {
       "type": "object",
@@ -923,11 +1303,13 @@
           "items": {
             "$ref": "#/definitions/RESTPaintSquadLeaderboardEntry"
           }
+        },
+        "message": {
+          "type": "string"
         }
       },
       "required": [
-        "success",
-        "data"
+        "success"
       ],
       "additionalProperties": false
     },
@@ -962,10 +1344,7 @@
           "type": "number"
         },
         "profile": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/RESTSkinProfileData"
-          }
+          "$ref": "#/definitions/RESTSkinProfileData"
         },
         "place": {
           "type": "number"
@@ -1016,10 +1395,7 @@
           "type": "number"
         },
         "profile": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/RESTSkinProfileData"
-          }
+          "$ref": "#/definitions/RESTSkinProfileData"
         }
       },
       "required": [
@@ -1059,11 +1435,13 @@
         },
         "data": {
           "$ref": "#/definitions/RESTPaintSquadPlayerData"
+        },
+        "message": {
+          "type": "string"
         }
       },
       "required": [
-        "success",
-        "data"
+        "success"
       ],
       "additionalProperties": false
     },
@@ -1075,11 +1453,13 @@
         },
         "data": {
           "$ref": "#/definitions/RESTBase64Data"
+        },
+        "message": {
+          "type": "string"
         }
       },
       "required": [
-        "success",
-        "data"
+        "success"
       ],
       "additionalProperties": false
     },
@@ -1103,11 +1483,13 @@
         },
         "data": {
           "$ref": "#/definitions/RESTBase64Data"
+        },
+        "message": {
+          "type": "string"
         }
       },
       "required": [
-        "success",
-        "data"
+        "success"
       ],
       "additionalProperties": false
     },
@@ -1122,11 +1504,13 @@
           "items": {
             "$ref": "#/definitions/RESTPaintSquadMatch"
           }
+        },
+        "message": {
+          "type": "string"
         }
       },
       "required": [
-        "success",
-        "data"
+        "success"
       ],
       "additionalProperties": false
     },
@@ -1167,6 +1551,9 @@
         "data": {
           "type": "object",
           "properties": {
+            "match_id": {
+              "type": "string"
+            },
             "game_version": {
               "type": "string"
             },
@@ -1235,6 +1622,7 @@
             }
           },
           "required": [
+            "match_id",
             "game_version",
             "resource_hash",
             "winning_team_name",
@@ -1248,11 +1636,13 @@
             "timestamp"
           ],
           "additionalProperties": false
+        },
+        "message": {
+          "type": "string"
         }
       },
       "required": [
-        "success",
-        "data"
+        "success"
       ],
       "additionalProperties": false
     },
@@ -1287,7 +1677,7 @@
         "deaths": {
           "type": "number"
         },
-        "assits": {
+        "assists": {
           "type": "number"
         },
         "set": {
@@ -1322,7 +1712,7 @@
         }
       },
       "required": [
-        "assits",
+        "assists",
         "boots",
         "chestplate",
         "deaths",
@@ -1388,7 +1778,8 @@
                 "$ref": "#/definitions/PaintSquadPerkLowercase"
               },
               {
-                "type": "null"
+                "type": "string",
+                "const": "null"
               }
             ]
           }
@@ -1486,11 +1877,13 @@
             "items"
           ],
           "additionalProperties": false
+        },
+        "message": {
+          "type": "string"
         }
       },
       "required": [
-        "success",
-        "data"
+        "success"
       ],
       "additionalProperties": false
     },
@@ -1551,11 +1944,13 @@
           "items": {
             "$ref": "#/definitions/RESTPaintSquadWeaponSetStats"
           }
+        },
+        "message": {
+          "type": "string"
         }
       },
       "required": [
-        "success",
-        "data"
+        "success"
       ],
       "additionalProperties": false
     },
@@ -1632,11 +2027,13 @@
             "invasion_mmr"
           ],
           "additionalProperties": false
+        },
+        "message": {
+          "type": "string"
         }
       },
       "required": [
-        "success",
-        "data"
+        "success"
       ],
       "additionalProperties": false
     },
@@ -1658,7 +2055,7 @@
             "uuid": {
               "type": "string"
             },
-            "playtime_seconds": {
+            "playtime_in_seconds": {
               "type": "number"
             },
             "language": {
@@ -1672,7 +2069,7 @@
             "xen_id",
             "username",
             "uuid",
-            "playtime_seconds",
+            "playtime_in_seconds",
             "language",
             "token"
           ],
@@ -1791,14 +2188,13 @@
         "success": {
           "type": "boolean"
         },
-        "response": {
-          "type": "string",
-          "const": "Hi!"
+        "message": {
+          "type": "string"
         }
       },
       "required": [
         "success",
-        "response"
+        "message"
       ],
       "additionalProperties": false
     }
