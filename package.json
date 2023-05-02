@@ -27,8 +27,5 @@
     "ts-json-schema-generator": "^1.2.0",
     "tsx": "^3.12.7",
     "typedoc": "^0.24.6"
-  },
-  "tsd": {
-    "directory": "tests"
   }
 }
