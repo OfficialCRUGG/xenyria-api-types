@@ -2,6 +2,7 @@ export * from "./RESTBase64Data";
 export * from "./RESTLocalizedString";
 export * from "./RESTPaintSquadInventoryItem";
 export * from "./RESTPaintSquadInventoryWeaponSet";
+export * from "./RESTPaintSquadItem";
 export * from "./RESTPaintSquadItemBase";
 export * from "./RESTPaintSquadLeaderboardEntry";
 export * from "./RESTPaintSquadMatch";
