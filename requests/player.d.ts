@@ -1,5 +1,3 @@
-import { Group, Language } from "../enums";
-
 export interface RESTGetAPIPlayerFetchRequest {
   xen_id?: number;
   username?: string;

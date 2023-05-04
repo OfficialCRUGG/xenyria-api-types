@@ -1,30 +1,7 @@
 import {
   PaintSquadLeaderboardRankingType,
   PaintSquadLeaderboardTimeSpan,
-  PaintSquadMode,
-  PaintSquadPerkLowercase,
-  PaintSquadTeam,
 } from "../enums";
-import {
-  RESTPaintSquadVersionDataArenas,
-  RESTPaintSquadVersionDataEquipmentQuality,
-  RESTPaintSquadVersionDataInvasionMMLadder,
-  RESTPaintSquadVersionDataLevelList,
-  RESTPaintSquadVersionDataMode,
-  RESTPaintSquadVersionDataPublicMMLadder,
-  RESTPaintSquadVersionDataSet,
-  RESTPaintSquadVersionDataStaticItem,
-  RESTPaintSquadVersionDataPerk,
-  RESTPaintSquadVersionDataWeapon,
-  RESTPaintSquadLeaderboardEntry,
-  RESTPaintSquadPlayerData,
-  RESTBase64Data,
-  RESTPaintSquadMatch,
-  RESTPaintSquadMatchPlayerInfo,
-  RESTPaintSquadInventoryWeaponSet,
-  RESTPaintSquadInventoryItem,
-  RESTPaintSquadWeaponSetStats,
-} from "../interfaces";
 
 export interface RESTGetAPIPaintSquadVersionDataRequest {
   version?: string;
