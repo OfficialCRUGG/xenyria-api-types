@@ -644,7 +644,7 @@
           "type": "string"
         },
         "name": {
-          "type": "string"
+          "$ref": "#/definitions/RESTLocalizedString"
         },
         "perks": {
           "type": "array",

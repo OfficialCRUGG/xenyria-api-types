@@ -7,7 +7,7 @@ export interface RESTPaintSquadVersionDataStaticItem
   item_id: number;
   model_prefix: string;
   fallback_material?: string;
-  name: string;
+  name: RESTLocalizedString;
   perks: "null"[];
   color_sensitive: boolean;
   primary_perk: PaintSquadPerk;
