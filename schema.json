@@ -315,7 +315,8 @@
         "success",
         "data"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "description": "The response of the `/paintsquad/version` endpoint. Represents various gameplay data of the respective game version."
     },
     "RESTPaintSquadVersionDataMode": {
       "type": "object",
@@ -345,17 +346,20 @@
       "type": "object",
       "properties": {
         "english": {
-          "type": "string"
+          "type": "string",
+          "description": "The english version of the string."
         },
         "german": {
-          "type": "string"
+          "type": "string",
+          "description": "The german version of the string."
         }
       },
       "required": [
         "english",
         "german"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "description": "Represents a localized string with both an english and a german version available."
     },
     "RESTPaintSquadVersionDataSet": {
       "type": "object",
