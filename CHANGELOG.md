@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/OfficialCRUGG/xenyria-api-types/compare/v0.2.0...v0.3.0) (2023-05-04)
+
+
+### Features
+
+* request typings ([e6747b8](https://github.com/OfficialCRUGG/xenyria-api-types/commits/e6747b8fb374964f8dbda50e49c8aea312b67ebe))
+
+
+### Documentation
+
+* RESTGetAPIPaintSquadVersionDataResponse ([1d43e12](https://github.com/OfficialCRUGG/xenyria-api-types/commits/1d43e12f9c451ec07f6487dd4c95d71d869ed902))
+* RESTLocalizedString ([eee8ec6](https://github.com/OfficialCRUGG/xenyria-api-types/commits/eee8ec687a15a580b51e45fd369fdca1549ded1d))
+
 ## 0.2.0 (2023-05-02)
 
 
