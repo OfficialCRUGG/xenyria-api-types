@@ -2,6 +2,8 @@ export * from "./Group";
 export * from "./Language";
 export * from "./PaintSquadItemCategory";
 export * from "./PaintSquadItemCategoryLowercase";
+export * from "./PaintSquadLeaderboardRankingType";
+export * from "./PaintSquadLeaderboardTimeSpan";
 export * from "./PaintSquadLevelRewardType";
 export * from "./PaintSquadMode";
 export * from "./PaintSquadPerk";
