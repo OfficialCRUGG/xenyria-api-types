@@ -24,6 +24,10 @@ import {
   RESTPaintSquadWeaponSetStats,
 } from "../interfaces";
 
+/**
+ * The response of the `/paintsquad/version` endpoint.
+ * Represents various gameplay data of the respective game version.
+ */
 export interface RESTGetAPIPaintSquadVersionDataResponse {
   success: boolean;
   data: {
