@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/OfficialCRUGG/xenyria-api-types/compare/v0.4.0...v0.5.0) (2023-05-06)
+
+
+### Features
+
+* Add enum for PaintSquad Mode IDs ([dd1c173](https://github.com/OfficialCRUGG/xenyria-api-types/commits/dd1c173afa65cbf42b7944517e66e0a8aa7b189c))
+
 ## [0.4.0](https://github.com/OfficialCRUGG/xenyria-api-types/compare/v0.3.0...v0.4.0) (2023-05-04)
 
 
