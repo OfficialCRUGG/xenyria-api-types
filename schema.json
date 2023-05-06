@@ -331,7 +331,7 @@
           "$ref": "#/definitions/RESTLocalizedString"
         },
         "id": {
-          "type": "number"
+          "$ref": "#/definitions/PaintSquadModeId"
         }
       },
       "required": [
@@ -360,6 +360,22 @@
       ],
       "additionalProperties": false,
       "description": "Represents a localized string with both an english and a german version available."
+    },
+    "PaintSquadModeId": {
+      "type": "number",
+      "enum": [
+        1,
+        6,
+        2,
+        10,
+        4,
+        0,
+        5,
+        9,
+        3,
+        8,
+        7
+      ]
     },
     "RESTPaintSquadVersionDataSet": {
       "type": "object",

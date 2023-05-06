@@ -6,6 +6,7 @@ export * from "./PaintSquadLeaderboardRankingType";
 export * from "./PaintSquadLeaderboardTimeSpan";
 export * from "./PaintSquadLevelRewardType";
 export * from "./PaintSquadMode";
+export * from "./PaintSquadModeId";
 export * from "./PaintSquadPerk";
 export * from "./PaintSquadPerkLowercase";
 export * from "./PaintSquadPlayerType";
