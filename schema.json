@@ -344,7 +344,7 @@
       "type": "object",
       "properties": {
         "database_id": {
-          "type": "number"
+          "$ref": "#/definitions/PaintSquadModeDbId"
         },
         "name": {
           "$ref": "#/definitions/RESTLocalizedString"
@@ -363,6 +363,21 @@
         "id"
       ],
       "additionalProperties": false
+    },
+    "PaintSquadModeDbId": {
+      "type": "number",
+      "enum": [
+        -1,
+        4,
+        0,
+        8,
+        2,
+        3,
+        7,
+        1,
+        6,
+        5
+      ]
     },
     "RESTLocalizedString": {
       "type": "object",
@@ -1618,7 +1633,7 @@
               "type": "string"
             },
             "gamemode": {
-              "$ref": "#/definitions/PaintSquadModeId"
+              "$ref": "#/definitions/PaintSquadModeDbId"
             },
             "minecraft_version": {
               "type": "string"
