@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/OfficialCRUGG/xenyria-api-types/compare/v0.6.0...v0.7.0) (2023-05-08)
+
+
+### Features
+
+* Enum for PaintSquad Gamemode DB IDs ([9424998](https://github.com/OfficialCRUGG/xenyria-api-types/commits/94249988e7dd299f524a31ff1e61f782bd4a4c2d))
+
+
+### Bug Fixes
+
+* Last Matches now uses correct Gamemode IDs ([994994f](https://github.com/OfficialCRUGG/xenyria-api-types/commits/994994f3c557f9adc781d874260b00847b867d69))
+
 ## [0.6.0](https://github.com/OfficialCRUGG/xenyria-api-types/compare/v0.5.0...v0.6.0) (2023-05-08)
 
 
