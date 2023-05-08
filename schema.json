@@ -17,6 +17,22 @@
           "type": "string"
         }
       },
+      "additionalProperties": false,
+      "required": [
+        "success"
+      ]
+    },
+    "RESTGetAPIResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {},
+        "message": {
+          "type": "string"
+        }
+      },
       "required": [
         "success"
       ],
@@ -86,12 +102,15 @@
             "maintenance"
           ],
           "additionalProperties": false
+        },
+        "message": {
+          "type": "string"
         }
       },
+      "additionalProperties": false,
       "required": [
         "success"
-      ],
-      "additionalProperties": false
+      ]
     },
     "RESTGetAPIPaintSquadVersionDataResponse": {
       "type": "object",
@@ -309,11 +328,14 @@
             "weapons"
           ],
           "additionalProperties": false
+        },
+        "message": {
+          "type": "string"
         }
       },
       "required": [
-        "success",
-        "data"
+        "data",
+        "success"
       ],
       "additionalProperties": false,
       "description": "The response of the `/paintsquad/version` endpoint. Represents various gameplay data of the respective game version."
@@ -1328,10 +1350,10 @@
           "type": "string"
         }
       },
+      "additionalProperties": false,
       "required": [
         "success"
-      ],
-      "additionalProperties": false
+      ]
     },
     "RESTPaintSquadLeaderboardEntry": {
       "type": "object",
@@ -1460,10 +1482,10 @@
           "type": "string"
         }
       },
+      "additionalProperties": false,
       "required": [
         "success"
-      ],
-      "additionalProperties": false
+      ]
     },
     "RESTGetAPIPaintSquadAssetRenderResponse": {
       "type": "object",
@@ -1478,10 +1500,10 @@
           "type": "string"
         }
       },
+      "additionalProperties": false,
       "required": [
         "success"
-      ],
-      "additionalProperties": false
+      ]
     },
     "RESTBase64Data": {
       "type": "object",
@@ -1508,10 +1530,10 @@
           "type": "string"
         }
       },
+      "additionalProperties": false,
       "required": [
         "success"
-      ],
-      "additionalProperties": false
+      ]
     },
     "RESTGetAPIPaintSquadLastMatchesResponse": {
       "type": "object",
@@ -1529,10 +1551,10 @@
           "type": "string"
         }
       },
+      "additionalProperties": false,
       "required": [
         "success"
-      ],
-      "additionalProperties": false
+      ]
     },
     "RESTPaintSquadMatch": {
       "type": "object",
@@ -1596,7 +1618,7 @@
               "type": "string"
             },
             "gamemode": {
-              "type": "number"
+              "$ref": "#/definitions/PaintSquadModeId"
             },
             "minecraft_version": {
               "type": "string"
@@ -1661,10 +1683,10 @@
           "type": "string"
         }
       },
+      "additionalProperties": false,
       "required": [
         "success"
-      ],
-      "additionalProperties": false
+      ]
     },
     "PaintSquadTeam": {
       "type": "string",
@@ -1707,7 +1729,8 @@
           "type": "number"
         },
         "stats_type": {
-          "type": "string"
+          "type": "string",
+          "const": "regular"
         },
         "team": {
           "type": "string"
@@ -1902,10 +1925,10 @@
           "type": "string"
         }
       },
+      "additionalProperties": false,
       "required": [
         "success"
-      ],
-      "additionalProperties": false
+      ]
     },
     "RESTPaintSquadInventoryItem": {
       "type": "object",
@@ -1969,10 +1992,10 @@
           "type": "string"
         }
       },
+      "additionalProperties": false,
       "required": [
         "success"
-      ],
-      "additionalProperties": false
+      ]
     },
     "RESTPaintSquadWeaponSetStats": {
       "type": "object",
@@ -2052,10 +2075,10 @@
           "type": "string"
         }
       },
+      "additionalProperties": false,
       "required": [
         "success"
-      ],
-      "additionalProperties": false
+      ]
     },
     "RESTGetAPIPlayerFetchResponse": {
       "type": "object",
@@ -2099,10 +2122,10 @@
           "type": "string"
         }
       },
+      "additionalProperties": false,
       "required": [
         "success"
-      ],
-      "additionalProperties": false
+      ]
     },
     "Language": {
       "type": "string",
@@ -2141,10 +2164,10 @@
           "type": "string"
         }
       },
+      "additionalProperties": false,
       "required": [
         "success"
-      ],
-      "additionalProperties": false
+      ]
     },
     "RESTGetAPIPlayerGroupResponse": {
       "type": "object",
@@ -2172,10 +2195,10 @@
           "type": "string"
         }
       },
+      "additionalProperties": false,
       "required": [
         "success"
-      ],
-      "additionalProperties": false
+      ]
     },
     "Group": {
       "type": "string",

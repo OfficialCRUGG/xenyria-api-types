@@ -1,7 +1,7 @@
 import { Group, Language } from "../enums";
+import { RESTGetAPIResponse } from "../interfaces";
 
-export interface RESTGetAPIPlayerFetchResponse {
-  success: boolean;
+export interface RESTGetAPIPlayerFetchResponse extends RESTGetAPIResponse {
   data?: {
     xen_id: number;
     username: string;
@@ -10,24 +10,19 @@ export interface RESTGetAPIPlayerFetchResponse {
     language: Language;
     token: number;
   };
-  message?: string;
 }
 
-export interface RESTGetAPIPlayerVotesResponse {
-  success: boolean;
+export interface RESTGetAPIPlayerVotesResponse extends RESTGetAPIResponse {
   data?: {
     total_vote_count: number;
     current_vote_streak: number;
     queued_vote_rewards: number;
   };
-  message?: string;
 }
 
-export interface RESTGetAPIPlayerGroupResponse {
-  success: boolean;
+export interface RESTGetAPIPlayerGroupResponse extends RESTGetAPIResponse {
   data?: {
     group_id: Group;
     membership_end: number;
   };
-  message?: string;
 }

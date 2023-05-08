@@ -10,7 +10,7 @@ export interface RESTPaintSquadMatchPlayerInfo extends RESTSkinProfileData {
   assists: number;
   set: number;
   special_use: number;
-  stats_type: string;
+  stats_type: "regular";
   team: string;
   team_type: PaintSquadTeam;
   points: number;

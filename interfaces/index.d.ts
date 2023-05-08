@@ -1,4 +1,5 @@
 export * from "./RESTBase64Data";
+export * from "./RESTGetAPIResponse";
 export * from "./RESTLocalizedString";
 export * from "./RESTPaintSquadInventoryItem";
 export * from "./RESTPaintSquadInventoryWeaponSet";

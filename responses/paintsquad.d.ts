@@ -1,5 +1,6 @@
 import {
   PaintSquadMode,
+  PaintSquadModeId,
   PaintSquadPerkLowercase,
   PaintSquadTeam,
 } from "../enums";
@@ -22,14 +23,15 @@ import {
   RESTPaintSquadInventoryWeaponSet,
   RESTPaintSquadInventoryItem,
   RESTPaintSquadWeaponSetStats,
+  RESTGetAPIResponse,
 } from "../interfaces";
 
 /**
  * The response of the `/paintsquad/version` endpoint.
  * Represents various gameplay data of the respective game version.
  */
-export interface RESTGetAPIPaintSquadVersionDataResponse {
-  success: boolean;
+export interface RESTGetAPIPaintSquadVersionDataResponse
+  extends RESTGetAPIResponse {
   data: {
     game_version: string;
     modes: {
@@ -54,38 +56,33 @@ export interface RESTGetAPIPaintSquadVersionDataResponse {
   };
 }
 
-export interface RESTGetAPIPaintSquadLeaderboardResponse {
-  success: boolean;
+export interface RESTGetAPIPaintSquadLeaderboardResponse
+  extends RESTGetAPIResponse {
   data?: RESTPaintSquadLeaderboardEntry[];
-  message?: string;
 }
 
-export interface RESTGetAPIPaintSquadPlayerStatsResponse {
-  success: boolean;
+export interface RESTGetAPIPaintSquadPlayerStatsResponse
+  extends RESTGetAPIResponse {
   data?: RESTPaintSquadPlayerData;
-  message?: string;
 }
 
-export interface RESTGetAPIPaintSquadAssetRenderResponse {
-  success: boolean;
+export interface RESTGetAPIPaintSquadAssetRenderResponse
+  extends RESTGetAPIResponse {
   data?: RESTBase64Data;
-  message?: string;
 }
 
-export interface RESTGetAPIPaintSquadArenaImageResponse {
-  success: boolean;
+export interface RESTGetAPIPaintSquadArenaImageResponse
+  extends RESTGetAPIResponse {
   data?: RESTBase64Data;
-  message?: string;
 }
 
-export interface RESTGetAPIPaintSquadLastMatchesResponse {
-  success: boolean;
+export interface RESTGetAPIPaintSquadLastMatchesResponse
+  extends RESTGetAPIResponse {
   data?: RESTPaintSquadMatch[];
-  message?: string;
 }
 
-export interface RESTGetAPIPaintSquadMatchDetailsResponse {
-  success: boolean;
+export interface RESTGetAPIPaintSquadMatchDetailsResponse
+  extends RESTGetAPIResponse {
   data?: {
     match_id: string;
     game_version: string;
@@ -95,7 +92,7 @@ export interface RESTGetAPIPaintSquadMatchDetailsResponse {
     losing_team_name: PaintSquadTeam;
     losing_team_score: number;
     arena: string;
-    gamemode: number;
+    gamemode: PaintSquadModeId;
     minecraft_version: string;
     metadata: {
       game_info: {
@@ -107,11 +104,10 @@ export interface RESTGetAPIPaintSquadMatchDetailsResponse {
     };
     timestamp: number;
   };
-  message?: string;
 }
 
-export interface RESTGetAPIPaintSquadInventoryResponse {
-  success: boolean;
+export interface RESTGetAPIPaintSquadInventoryResponse
+  extends RESTGetAPIResponse {
   data?: {
     equipped_helmet_local_id: number;
     equipped_chestplate_local_id: number;
@@ -119,17 +115,15 @@ export interface RESTGetAPIPaintSquadInventoryResponse {
     equipped_weapon_set_local_id: number;
     items: (RESTPaintSquadInventoryItem | RESTPaintSquadInventoryWeaponSet)[];
   };
-  message?: string;
 }
 
-export interface RESTGetAPIPaintSquadWeaponStatsResponse {
-  success: boolean;
+export interface RESTGetAPIPaintSquadWeaponStatsResponse
+  extends RESTGetAPIResponse {
   data?: RESTPaintSquadWeaponSetStats[];
-  message?: string;
 }
 
-export interface RESTGetAPIPaintSquadPlayerDataResponse {
-  success: boolean;
+export interface RESTGetAPIPaintSquadPlayerDataResponse
+  extends RESTGetAPIResponse {
   data?: {
     tutorial_finished: boolean;
     coins: number;
@@ -137,5 +131,4 @@ export interface RESTGetAPIPaintSquadPlayerDataResponse {
     public_mmr: number;
     invasion_mmr: number;
   };
-  message?: string;
 }
