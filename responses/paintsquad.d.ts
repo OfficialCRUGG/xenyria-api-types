@@ -1,6 +1,6 @@
 import {
   PaintSquadMode,
-  PaintSquadModeId,
+  PaintSquadModeDbId,
   PaintSquadPerkLowercase,
   PaintSquadTeam,
 } from "../enums";
@@ -92,7 +92,7 @@ export interface RESTGetAPIPaintSquadMatchDetailsResponse
     losing_team_name: PaintSquadTeam;
     losing_team_score: number;
     arena: string;
-    gamemode: PaintSquadModeId;
+    gamemode: PaintSquadModeDbId;
     minecraft_version: string;
     metadata: {
       game_info: {
