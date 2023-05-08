@@ -1,6 +1,6 @@
 {
   "name": "xenyria-api-types",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "🔖 Type Definitions for the Xenyria API",
   "types": "index.d.ts",
   "scripts": {
